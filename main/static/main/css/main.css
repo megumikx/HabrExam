@@ -1,0 +1,246 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    color: #333;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    height: 76px;
+    background: #303b45;
+    display: flex;
+    align-items: center;
+    padding: 0 38px;
+    color: white;
+    margin: 0;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+    font-size: 16px;
+}
+
+header a:hover {
+    color: #61b5e8;
+}
+
+/* ================= MAIN CONTAINER ================= */
+
+.container {
+    width: 1100px;
+    margin: 10px auto;
+}
+
+/* ================= CONTENT ================= */
+
+.content {
+    background: white;
+    padding: 30px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.content h1 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+/* ================= FORMS ================= */
+
+form {
+    max-width: 500px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 18px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+button {
+    background: #5797bd;
+    color: white;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 3px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4685aa;
+}
+
+/* ================= ARTICLES ================= */
+
+.article {
+    background: white;
+    padding: 25px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+}
+
+.article h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.article h2 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.article h2 a:hover {
+    color: #5797bd;
+}
+
+.article-info {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.article-text {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ================= ARTICLE IMAGE ================= */
+
+.article-image {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+/* ================= CATEGORY ================= */
+
+.category {
+    display: inline-block;
+    color: #5797bd;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ================= RATING ================= */
+
+.rating {
+    color: #f0a500;
+    font-size: 18px;
+}
+
+/* ================= LINKS ================= */
+
+a {
+    color: #5797bd;
+}
+
+a:hover {
+    color: #36789e;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1150px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 22px;
+        margin-right: 15px;
+    }
+
+    header a {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+aside {
+    float: left;
+    background: #303b45;
+    width: 240px;
+    padding: 30px 25px;
+    min-height: calc(100vh - 76px);
+    color: white;
+    border-right: 1px solid #202930;
+    margin-top: 0;
+}
+aside h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside li {
+    margin-bottom: 8px;
+}
+
+aside a {
+    display: block;
+    padding: 12px 15px;
+    color: #dce3e8;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+aside a:hover {
+    background: #43515d;
+    color: white;
+}
+
+aside i {
+    width: 25px;
+    margin-right: 10px;
+    text-align: center;
+}
