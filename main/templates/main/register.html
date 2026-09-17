@@ -1,13 +1,9 @@
-{% extends 'main/layout.html' %}
+{% extends 'main/base.html' %}
 
-{% block title %}
-    Регистрация
-{% endblock %}
+{% block title %}Регистрация{% endblock %}
 
 {% block content %}
-
 <div class="content">
-
     <h1>Регистрация</h1>
 
     <form method="post">
@@ -22,7 +18,5 @@
         Уже есть аккаунт?
         <a href="{% url 'login' %}">Войти</a>
     </p>
-
 </div>
-
 {% endblock %}

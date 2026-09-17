@@ -1,5 +1,4 @@
-{% extends 'main/layout.html' %}
-
+{% extends 'main/base.html' %}
 {% block title %}Вход{% endblock %}
 
 {% block content %}
@@ -8,19 +7,9 @@
 
     <form method="post">
         {% csrf_token %}
-
-        <label>Имя пользователя:</label>
-        <input type="text" name="username">
-
-        <label>Пароль:</label>
-        <input type="password" name="password">
+        {{ form.as_p }}
 
         <button type="submit">Войти</button>
     </form>
-
-    <p>
-        Нет аккаунта?
-        <a href="{% url 'register' %}">Зарегистрироваться</a>
-    </p>
 </div>
 {% endblock %}

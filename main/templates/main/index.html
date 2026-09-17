@@ -3,7 +3,28 @@
 {% block title %}Главная{% endblock %}
 
 {% block content %}
+<div class="content">
+    <h1>Последние новости</h1>
 
+    <div class="news-preview">
+        <article class="news-card">
+            <h2>Первая новость</h2>
+            <p>Короткое описание новости, чтобы посетитель понял, о чём она.</p>
+        </article>
 
+        <article class="news-card">
+            <h2>Вторая новость</h2>
+            <p>Здесь также будет краткий текст и затем переход к полной записи.</p>
+        </article>
 
+        <article class="news-card">
+            <h2>Третья новость</h2>
+            <p>На главной будут только несколько свежих публикаций.</p>
+        </article>
+    </div>
+
+    <a class="all-news-link" href="{% url 'news' %}">
+        Смотреть все новости →
+    </a>
+</div>
 {% endblock %}
