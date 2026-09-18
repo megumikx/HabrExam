@@ -189,7 +189,19 @@ button:hover {
     background: #4685aa;
     transform: scale(1.05);
 }
+button:hover {
+    background: #4685aa;
+    transform: scale(1.05);
+}
 
+.btn-info {
+    background: #3f718d;
+    color: white;
+}
+
+.btn-info:hover {
+    background: #345f77;
+}
 @media (max-width: 700px) {
     header {
         padding: 0 20px;
@@ -223,4 +235,104 @@ button:hover {
     .content {
         padding: 20px;
     }
+}
+/* Страница новостей */
+
+.features {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features h1 {
+    margin: 0 0 25px;
+    font-size: 32px;
+}
+
+.news-card {
+    padding: 22px 25px;
+    margin-bottom: 20px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    border: 1px solid #dfe4e8;
+    border-radius: 10px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+
+    transition: 0.2s ease;
+}
+
+.news-card:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.news-card h2 {
+    margin: 0 0 12px;
+
+    color: #303b45;
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.news-card p {
+    margin: 0;
+
+    color: #566573;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.news-footer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 16px;
+    padding-top: 12px;
+
+    border-top: 1px solid #e5e5e5;
+
+    font-size: 14px;
+}
+
+.news-footer span {
+    color: #888;
+}
+
+.news-footer a {
+    color: #5797bd;
+    text-decoration: none;
+}
+
+.news-footer a:hover {
+    color: #36789e;
+}
+aside ul li .add-post-btn {
+    display: inline-flex !important;
+    align-items: center;
+
+    width: auto !important;
+
+    padding: 10px 15px !important;
+
+    color: white !important;
+    background: #434f54 !important;
+
+    font-size: 16px !important;
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+aside ul li .add-post-btn:hover {
+    color: white !important;
+    background: #919fa8 !important;
+
+    transform: scale(1.03);
 }

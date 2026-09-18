@@ -6,5 +6,8 @@ class News(models.Model):
     full_text = models.TextField('Статья')
     data = models.DateTimeField('Дата публикации')
 
-def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
