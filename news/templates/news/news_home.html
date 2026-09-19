@@ -1,33 +1,37 @@
-{% extends 'main/layout.html' %}
+{% extends 'layout.html' %}
 
-{% block title %}Новости на сайте{% endblock %}
+{% block title %}Новости — Хабр{% endblock %}
 
 {% block content %}
 
-<div class="content">
+<h1>Новости</h1>
 
-    <h1>Новости на сайте</h1>
+{% for el in news %}
 
-    {% for el in news %}
+    <article class="news-card">
 
-        <div class="news-card">
+        <h2>
+            <a href="{% url 'detail' el.pk %}">
+                {{ el.title }}
+            </a>
+        </h2>
 
-            <h2>{{ el.title }}</h2>
+        <p>{{ el.anons }}</p>
 
-            <p>{{ el.anons }}</p>
+        <div class="news-card-footer">
+            <a href="{% url 'detail' el.pk %}" class="news-link">
+                Перейти на новость
+            </a>
 
-            <div class="news-footer">
-                <span>{{ el.data|date:"d.m.Y" }}</span>
-
-                <a href="#">
-                    Читать далее →
-                </a>
-            </div>
-
+            <small>{{ el.data }}</small>
         </div>
 
-    {% endfor %}
+    </article>
 
-</div>
+{% empty %}
+
+    <p>Новостей пока нет.</p>
+
+{% endfor %}
 
 {% endblock %}

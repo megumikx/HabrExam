@@ -1,4 +1,4 @@
-{% extends 'main/layout.html' %}
+{% extends 'main/../../../main/templates/layout.html' %}
 
 {% block title %}Форма по добавлению статьи{% endblock %}
 
@@ -14,6 +14,7 @@
         {{ form.full_text }}<br>
         {{ form.data }}<br>
 
+        <span>{{ error }}</span>
         <button class="btn btn-success" type="submit">Добавить статью</button>
 
     </form>

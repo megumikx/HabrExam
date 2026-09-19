@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ post.title }} — Хабр{% endblock %}
+
+{% block content %}
+
+<article class="news-detail">
+
+    <h1>{{ post.title }}</h1>
+
+    <p class="news-date">
+        {{ post.data }}
+    </p>
+
+    <p class="news-anons">
+        {{ post.anons }}
+    </p>
+
+    <div class="news-text">
+        {{ post.full_text }}
+    </div>
+
+</article>
+
+{% endblock %}

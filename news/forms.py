@@ -16,7 +16,7 @@ class NewsForm(ModelForm):
                 "class": "form-control",
                 "placeholder": "Анонс статьи"
             }),
-            "date": DateTimeInput(attrs={
+            "data": DateTimeInput(attrs={
                 "class": "form-control",
                 "placeholder": "Дата публикации"
             }),
