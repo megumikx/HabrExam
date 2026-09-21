@@ -1,10 +1,10 @@
 from .models import News
-from django.forms import ModelForm, TextInput, DateTimeInput, Textarea
+from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, FileInput
 
 class NewsForm(ModelForm):
     class Meta:
         model = News
-        fields = ['title', 'anons', 'full_text', 'data']
+        fields = ['title', 'anons', 'full_text','category', 'data']
 
         widgets = {
 
@@ -23,5 +23,8 @@ class NewsForm(ModelForm):
             "full_text": Textarea(attrs={
                 "class": "form-control",
                 "placeholder": "Текст статьи"
+            }),
+            "image": FileInput(attrs={
+                "class": "form-control"
             }),
         }

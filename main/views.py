@@ -2,10 +2,12 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.shortcuts import redirect, render
+from news.models import News
 
 
 def index(request):
-    return render(request, "main/index.html")
+    news = News.objects.order_by('-data')[:3]
+    return render(request, 'main/index.html', {'news': news})
 
 
 def about(request):

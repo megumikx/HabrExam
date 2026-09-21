@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block title %}Удаление статьи — Хабр{% endblock %}
+
+{% block content %}
+
+<div class="delete-page">
+
+    <div class="delete-card">
+
+        <h1>Удаление статьи</h1>
+
+        <p class="delete-warning">
+            Вы уверены, что хотите удалить эту статью?
+        </p>
+
+        <div class="delete-article">
+            <h2>{{ object.title }}</h2>
+
+            <p>{{ object.anons }}</p>
+
+            <small>
+                {{ object.data }}
+            </small>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="delete-buttons">
+
+                <button type="submit" class="delete-button">
+                    Да, удалить
+                </button>
+
+                <a href="{% url 'detail' object.pk %}" class="cancel-button">
+                    Отмена
+                </a>
+
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
