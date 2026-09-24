@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}Авторы — Хабр{% endblock %}
+
+{% block content %}
+
+<h1>Авторы</h1>
+
+{% for author in authors %}
+
+    <article class="news-card">
+
+        <h2>{{ author.username }}</h2>
+
+        <p>
+            Одобренных статей:
+            {{ author.news.count }}
+        </p>
+
+    </article>
+
+{% empty %}
+
+    <p>Авторов пока нет.</p>
+
+{% endfor %}
+
+{% endblock %}

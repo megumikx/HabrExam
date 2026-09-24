@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block title %}Пользователи — Хабр{% endblock %}
+
+{% block content %}
+
+    <h1>Управление пользователями</h1>
+
+    {% for user_item in users %}
+
+        <article class="news-card">
+
+            <h2>{{ user_item.username }}</h2>
+
+            <p>
+                Email: {{ user_item.email|default:"Не указан" }}
+            </p>
+
+            <p>
+                Статус:
+                {% if user_item.is_active %}
+                    Активен
+                {% else %}
+                    Заблокирован
+                {% endif %}
+            </p>
+
+            <p>
+                Роль:
+                {% if user_item.is_superuser %}
+                    Super Admin
+                {% elif user_item.groups.all %}
+                    {% for group in user_item.groups.all %}
+                        {{ group.name }}
+                    {% empty %}
+                        Пользователь
+                    {% endfor %}
+                {% else %}
+                    Пользователь
+                {% endif %}
+            </p>
+
+            {% if not user_item.is_superuser and user_item != user %}
+
+                <div style="
+                margin-top: 20px;
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+            ">
+
+                    <form method="post"
+                          action="{% url 'toggle-user-ban' user_item.pk %}">
+                        {% csrf_token %}
+
+                        <button type="submit">
+                            {% if user_item.is_active %}
+                                Заблокировать
+                            {% else %}
+                                Разблокировать
+                            {% endif %}
+                        </button>
+                    </form>
+
+                    {% if user.is_superuser %}
+                        <form method="post"
+                              action="{% url 'toggle-admin' user_item.pk %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                {% if user_item.is_admin_group %}
+                                    Снять Admin
+                                {% else %}
+                                    Назначить Admin
+                                {% endif %}
+                            </button>
+                        </form>
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+        </article>
+
+    {% empty %}
+
+        <p>Пользователей пока нет.</p>
+
+    {% endfor %}
+
+{% endblock %}

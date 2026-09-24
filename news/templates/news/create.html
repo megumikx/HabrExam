@@ -25,15 +25,20 @@
         <div class="form-group">
             <label for="{{ form.image.id_for_label }}">Изображение</label>
             {{ form.image }}
-        </div>
 
-        <span>{{ error }}</span>
+        {% if form.errors %}
+            <div class="form-errors">
+                {{ form.errors }}
+            </div>
+        {% endif %}
 
-        <button class="btn btn-success" type="submit">
-            Добавить статью
-        </button>
+            <span>{{ error }}</span>
+                <br>
 
-    </form>
+    <button class="btn btn-success" type="submit">
+        Добавить статью
+    </button>
+        </form>
 
 </div>
 

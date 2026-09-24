@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block title %}Избранное — Хабр{% endblock %}
+
+{% block content %}
+
+<h1>Избранное</h1>
+
+{% for bookmark in bookmarks %}
+
+    <article class="news-card">
+
+        {% if bookmark.news.image %}
+            <div class="news-image-container">
+                <img
+                    src="{{ bookmark.news.image.url }}"
+                    alt="{{ bookmark.news.title }}"
+                    class="news-image"
+                >
+            </div>
+        {% endif %}
+
+        <h2>
+            <a href="{% url 'detail' bookmark.news.pk %}">
+                {{ bookmark.news.title }}
+            </a>
+        </h2>
+
+        <p>{{ bookmark.news.anons }}</p>
+
+        <p class="news-category">
+            Категория: {{ bookmark.news.category.name }}
+        </p>
+
+        <p class="news-author">
+            <i class="fa-solid fa-user"></i>
+            Автор:
+            {{ bookmark.news.author.username|default:"Неизвестный автор" }}
+        </p>
+
+        <div class="news-card-footer">
+
+            <a href="{% url 'detail' bookmark.news.pk %}" class="news-link">
+                Перейти на новость
+            </a>
+
+            <form
+                method="post"
+                action="{% url 'toggle-bookmark' bookmark.news.pk %}"
+            >
+                {% csrf_token %}
+
+                <button type="submit" class="remove-bookmark-btn">
+                    <i class="fa-solid fa-star"></i>
+                    Убрать из избранного
+                </button>
+            </form>
+
+            <small>{{ bookmark.news.data }}</small>
+
+        </div>
+
+    </article>
+
+{% empty %}
+
+    <p>В избранном пока нет постов.</p>
+
+{% endfor %}
+
+{% endblock %}

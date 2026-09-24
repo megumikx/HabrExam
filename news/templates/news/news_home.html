@@ -6,10 +6,69 @@
 
 <h1>Новости</h1>
 
+    <form method="get" style="
+    margin: 20px 0 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+">
+
+    <label for="rating">
+        Фильтр по рейтингу:
+    </label>
+
+    <select
+        name="rating"
+        id="rating"
+        onchange="this.form.submit()"
+        style="
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        "
+    >
+
+        <option value="" {% if not rating_filter %}selected{% endif %}>
+            Все новости
+        </option>
+
+        <option value="5" {% if rating_filter == 5 %}selected{% endif %}>
+            ⭐ 5+
+        </option>
+
+        <option value="4" {% if rating_filter == 4 %}selected{% endif %}>
+            ⭐ 4+
+        </option>
+
+        <option value="3" {% if rating_filter == 3 %}selected{% endif %}>
+            ⭐ 3+
+        </option>
+
+        <option value="2" {% if rating_filter == 2 %}selected{% endif %}>
+            ⭐ 2+
+        </option>
+
+        <option value="1" {% if rating_filter == 1 %}selected{% endif %}>
+            ⭐ 1+
+        </option>
+
+    </select>
+
+</form>
+
 {% for el in news %}
 
     <article class="news-card">
-
+       {% if el.image %}
+    <div class="news-image-container">
+        <img
+            src="{{ el.image.url }}"
+            alt="{{ el.title }}"
+            class="news-image"
+        >
+    </div>
+{% endif %}
         <h2>
             <a href="{% url 'detail' el.pk %}">
                 {{ el.title }}
@@ -17,6 +76,25 @@
         </h2>
 
         <p>{{ el.anons }}</p>
+
+
+        <p class="news-author">
+            <i class="fa-solid fa-user"></i>
+            Автор: {{ el.author.username|default:"Неизвестный автор" }}
+        </p>
+
+        {% if el.avg_rating %}
+     <p class="news-rating">
+        ⭐ Рейтинг:
+        <strong>{{ el.avg_rating|floatformat:1 }}</strong>
+        ({{ el.ratings.count }} оценок)
+    </p>
+{% else %}
+    <p class="news-rating">
+        ⭐ Пока нет оценок
+    </p>
+{% endif %}
+
 
         <div class="news-card-footer">
             <a href="{% url 'detail' el.pk %}" class="news-link">
